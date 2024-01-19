@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Simple Counter in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Start a new Prohect in React
+You need NodeJS und NPM
 
-## Available Scripts
+### We are creating a new React project with NPX
+```
+npx create-react-app simple-counter
+```
 
-In the project directory, you can run:
+### Switch to folder 'simple-counter' and start VS-Code
+```
+cd simple-counter
+code .
+```
 
-### `npm start`
+### Start the application now with npm start (runs on localhost:3000), here we can view our result "on-the-fly"
+```
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### In the directory tree of VS-Code we change to src/App.js and delete all commands that we do not need for our project, the result should look like this
+```
+import logo from './logo.svg';
+import './App.css';
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+    
+      </header>
+    </div>
+  );
+}
 
-### `npm test`
+export default App;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### For a simple test, we can insert the following code in line 8 and view it directly in the browser
+```
+import logo from './logo.svg';
+import './App.css';
 
-### `npm run build`
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Hello World</p>
+      </header>
+    </div>
+  );
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default App;
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Write a Programm in React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### We set an initial value of 0 via the useState function and show the output on the Screen
+```
+import logo from './logo.svg';
+import './App.css';
+import { useState } from 'react';
+function App() {
 
-### `npm run eject`
+  const [value, setValue] = useState(0);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Value: <span>{value}</span></p>        
+      </header>
+    </div>
+  );
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Add 2 buttons that count up or down the value on click
+```
+import logo from './logo.svg';
+import './App.css';
+import { useState } from 'react';
+function App() {
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  const [value, setValue] = useState(0);
 
-## Learn More
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Value: <span>{value}</span></p>
+        <div>
+          <button onClick={() => setValue(value + 1)}>+</button>
+          <button onClick={() => setValue(value - 1)}>-</button>
+          </div>       
+      </header>
+    </div>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The result can be viewed in a browser
